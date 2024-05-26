@@ -20,7 +20,7 @@ const Team = () => {
   useEffect(() => {
     const fetchTrainers = async () => {
       try {
-        const response = await axios.get(${process.env.REACT_APP_BACKEND_URL}/getAllTrainers);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/getAllTrainers`);
         setTrainers(response.data.trainers);
       } catch (error) {
         console.error("Error fetching trainers:", error);
@@ -49,7 +49,7 @@ const Team = () => {
                   <div className="dz-team style-1"  style={{height:'100%', width:'100%', }} onClick={() => openModal(trainer)}>
                     <div className="dz-media"  style={{ height:'100%', width:'100%'}}>
                       <div style={{ objectFit:'cover',height:'100%', width:'100%'}}>
-                        <img style={{height:'100%',width:'100%',objectFit:'cover',marginBottom:'0px',paddingBottom:'0px'}} src={${process.env.REACT_APP_BACKEND_URL}/${trainer.image}} alt="" />
+                        <img style={{height:'100%',width:'100%',objectFit:'cover',marginBottom:'0px',paddingBottom:'0px'}} src={`${process.env.REACT_APP_BACKEND_URL}/${trainer.image}`} alt="" />
                       </div>
                     </div>
                     <div className="dz-content" style={{fontSize:'10%',width:'100%',height:'20%', transform:'skewY(-17deg) translateY(-100%)'}}>
@@ -74,7 +74,7 @@ const Team = () => {
                 </div>
                 <div className="modal-body" style={{height:'88%',width:'100%',overflowY:'scroll',msOverflowStyle:'none',scrollbarWidth:'none', display:'flex',flexDirection:'column',justifyContent:'space-evenly'}}>
                   <div style={{width:'100%', height:'80%'}}>
-                    <img style={{ objectFit:'cover',width:'100%',height:'100%'}} src={${process.env.REACT_APP_BACKEND_URL}/${selectedTrainer.image}} alt="" />
+                    <img style={{ objectFit:'cover',width:'100%',height:'100%'}} src={`${process.env.REACT_APP_BACKEND_URL}/${selectedTrainer.image}`} alt="" />
                   </div>
                   <p style={{marginTop:'1rem', display:'flex'}}><h6 style={{ color:'#B67352', paddingRight:'1rem'}}>Description: </h6> {selectedTrainer.description}</p>
                   <p style={{ display:'flex'}}><h6 style={{color:'#B67352', paddingRight:'1rem'}}>Rating:</h6> {selectedTrainer.rating}</p>
@@ -88,4 +88,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default Team;
